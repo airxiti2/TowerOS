@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@100..1000&display=swap");
+
+* {
+  font-family: "Google Sans Flex", sans-serif;
+}
+
+img {
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f0f0f0;
+  padding: 5%;
+}
+
+.left button {
+  padding: 15px;
+  padding-left: 35px;
+  padding-right: 35px;
+  border-radius: 10px;
+  border-color: gray;
+  background: #f3f3e3;
+}
+
+.right {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.right a {
+  color: white;
+}
+
+.copyright-text {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
