@@ -4,29 +4,76 @@
   font-family: "Google Sans Flex", sans-serif;
 }
 
+body {
+  margin: 0;
+}
 .screen {
   display: flex;
   background-image: url(../assets/images/background.png);
   background-size: cover;
   height: 100vh;
   justify-content: center;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
 }
 
-.metar_window {
-  background: white;
+.window {
   position: absolute;
-  width: 20%;
+  display: flex;
+  flex-direction: column;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 20px;
-  padding-top: 5px;
-  border: 2px solid black;
-  border-radius: 5px;
 }
 
+.window_header {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1px;
+  height: 25px;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 2px solid black;
+  border-bottom-width: 0;
+  border-radius: 5px 5px 0 0;
+  user-select: none;
+  cursor: move;
+}
+
+.window_header img {
+  width: 20px;
+  height: 20px;
+}
+
+.window_header p {
+  height: 20px;
+  margin: 1px;
+}
+
+.window_close {
+  display: flex;
+  margin-left: auto;
+  cursor: pointer;
+  user-select: none;
+}
+
+.window_content {
+  flex: 1;
+  box-sizing: border-box;
+  background: white;
+  width: 100%;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 0 0 5px 5px;
+  position: relative;
+}
+.window_content h2 {
+  margin-top: 0px;
+}
 .metar_response {
+  display: flex;
+  flex-wrap: wrap;
   background: rgb(210, 210, 210);
   color: rgb(88, 88, 88);
   width: 100%;
@@ -43,11 +90,17 @@
 .app_bar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-left: 35%;
+  margin-right: 35%;
+  width: 30%;
   height: 5vh;
   border: 2px solid rgb(46, 46, 46);
   border-radius: 25px;
   backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, 0.25);
+  user-select: none;
 }
 
 .app_bar_title {
@@ -82,7 +135,7 @@
 .app_bar_apps li a {
   display: inline-flex;
   color: black;
-
+  cursor: pointer;
   padding: 1vh;
   text-decoration: none;
   height: 20px;
@@ -115,7 +168,7 @@
   display: flex;
   height: 2.5vh;
   margin-right: 0.5vh;
-  margin-left: 0.5vh;
+
   justify-self: flex-end;
   background: #ffffff5a;
   border-radius: 25px;
@@ -124,4 +177,56 @@
 
 .app_bar_clock p {
   margin: 2px;
+}
+
+.desktop {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.desktop_app {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-bottom: 300px;
+  width: 60px;
+  justify-content: center;
+  user-select: none;
+}
+
+.desktop_app p {
+  margin: 2px;
+}
+
+.desktop_app img {
+  width: 40px;
+  height: 40px;
+}
+
+.selected {
+  border: 1px solid #0088ff27;
+  background-color: #0088ff27;
+  border-radius: 5px;
+  text-shadow: 5px;
+}
+
+#window_radar {
+  width: 1100px;
+  height: 600px;
+}
+
+#window_radar .window_content {
+  height: calc(100% - 25px);
+}
+
+#window_radar iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+#window_metar {
+  width: 320px;
 }
