@@ -1,11 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TowerOS</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="desktop.css" />
+  </head>
+  <body>
+    <div class="screen">
+      <div class="metar_window">
+        <h2>METAR Fetcher</h2>
+        <label for="metar_icao">METAR ICAO: </label>
+        <input type="text" id="metar_inpud" name="metar_icao" size="2" />
+        <input id="metar_submit" type="submit" value="Submit" />
+        <div class="metar_response">
+          <p>Enter ICAO for METAR</p>
+        </div>
+      </div>
+      <div class="app_bar">
+        <div class="app_bar_title"><strong>TowerOS</strong></div>
+        <div class="app_bar_apps">
+          <ul>
+            <li>
+              <a href="#">
+                <img src="../assets/icons/cloud_black.svg" alt="cloud icon" />
+                <span>METAR</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="../assets/icons/radar_black.svg" alt="Radar" />
+                <span>VATSIM Radar</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="app_bar_clock">
+          <p id="app_bar_time">16:44</p>
+        </div>
+      </div>
+    </div>
+    <script src="os.js"></script>
+  </body>
 </html>
