@@ -20,9 +20,10 @@ body {
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 20vh;
+  top: 25%;
+  left: 25%;
+  z-index: 1;
 }
 
 .window_header {
@@ -63,28 +64,20 @@ body {
   box-sizing: border-box;
   background: white;
   width: 100%;
-  padding: 20px;
+  height: 160px;
+  padding: 10px;
   border: 2px solid black;
   border-radius: 0 0 5px 5px;
   position: relative;
 }
-.window_content h2 {
-  margin-top: 0px;
-}
-.metar_response {
-  display: flex;
-  flex-wrap: wrap;
-  background: rgb(210, 210, 210);
-  color: rgb(88, 88, 88);
-  width: 100%;
-  border: 1px solid rgb(165, 165, 165);
-  border-radius: 5px;
-  margin-top: 5px;
-  padding: 1px;
-}
 
-.metar_response p {
-  margin: 2px;
+.window_content iframe {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+  border: 0;
 }
 
 .app_bar {
@@ -229,4 +222,20 @@ body {
 
 #window_metar {
   width: 320px;
+  height: 160px;
+}
+
+.resizer {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  background-color: black;
+  right: 0;
+  bottom: 0;
+  cursor: se-resize;
+  z-index: 10;
+}
+
+.resize-active iframe {
+  pointer-events: none;
 }

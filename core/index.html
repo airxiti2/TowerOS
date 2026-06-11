@@ -15,14 +15,9 @@
           <span class="window_close" id="metar_close">🔴</span>
         </div>
         <div class="window_content">
-          <h2>METAR Fetcher</h2>
-          <label for="metar_icao">METAR ICAO: </label>
-          <input type="text" id="metar_input" name="metar_icao" size="2" />
-          <input id="metar_submit" type="submit" value="Submit" />
-          <div class="metar_response" id="metar_response">
-            <p>Enter ICAO for METAR</p>
-          </div>
+          <iframe src="apps/metar/metar.html" title="Metar Fetcher"></iframe>
         </div>
+        <div class="resizer"></div>
       </div>
       <div class="window" id="window_radar" style="display: none">
         <div class="window_header" id="window_radar_header">
@@ -31,8 +26,9 @@
           <span class="window_close" id="radar_close">🔴</span>
         </div>
         <div class="window_content">
-          <iframe src="https://simradar21.com" title="VATSIM Radar"></iframe>
+          <iframe src="https://simradar21.com" title="simradar21"></iframe>
         </div>
+        <div class="resizer"></div>
       </div>
       <div class="app_bar">
         <div class="app_bar_title"><strong>TowerOS</strong></div>
@@ -47,7 +43,7 @@
             <li>
               <a id="radar_open">
                 <img src="../assets/icons/radar_black.svg" alt="Radar" />
-                <span>VATSIM Radar</span>
+                <span>Simradar21</span>
               </a>
             </li>
           </ul>

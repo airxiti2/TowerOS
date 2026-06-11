@@ -1,0 +1,27 @@
+body {
+  display: flex;
+  flex-flow: column;
+}
+
+#metar_input {
+  width: 30%;
+}
+
+#metar_submit {
+  width: 30%;
+}
+
+.metar_response {
+  display: flex;
+  flex-wrap: wrap;
+  background: rgb(210, 210, 210);
+  color: rgb(88, 88, 88);
+  border: 1px solid rgb(165, 165, 165);
+  border-radius: 5px;
+  margin-top: 5px;
+  padding: 1px;
+}
+
+.metar_response p {
+  margin: 2px;
+}

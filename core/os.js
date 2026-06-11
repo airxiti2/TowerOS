@@ -113,54 +113,62 @@ function handleIconTap(element) {
   }
 }
 
-async function fetchVatsimMetar(icao) {
-  try {
-    const url = `https://metar.vatsim.net/${icao.toUpperCase()}?format=json`;
-    const response = await fetch(url);
-    const data = await response.json();
-    const metarResponse = document.querySelector("#metar_response");
-    console.log(data);
-    metarResponse.textContent = data[0].id + " " + data[0].metar;
-  } catch (error) {
-    console.error("Error while fetching METAR data for" + icao + ": " + error);
-  }
-}
-
-const metarButton = document.querySelector("#metar_submit");
-const metarInput = document.querySelector("#metar_input");
-
-metarButton.addEventListener("click", function () {
-  const icaoCode = metarInput.value;
-  if (icaoCode.trim() !== "") {
-    fetchVatsimMetar(icaoCode);
-  }
-});
-
 let windowMetar = document.querySelector("#window_metar");
 let windowRadar = document.querySelector("#window_radar");
 
 metarApp.addEventListener("click", function (e) {
-  e.stopPropagation(); // Verhindert, dass der Klick sofort den Desktop trifft
+  e.stopPropagation();
   selectIcon(metarApp);
 });
 
 metarApp.addEventListener("dblclick", function () {
-  openWindow(window_metar); // Öffnet das Fenster bei Doppelklick
+  openWindow(window_metar);
 });
 
-// 4. Event Listener für das RADAR-Icon
 radarApp.addEventListener("click", function (e) {
-  e.stopPropagation(); // Verhindert, dass der Klick sofort den Desktop trifft
+  e.stopPropagation();
   selectIcon(radarApp);
 });
 
 radarApp.addEventListener("dblclick", function () {
-  openWindow(window_radar); // Öffnet das Fenster bei Doppelklick
+  openWindow(window_radar);
 });
 
-// 5. Klick auf den Desktop hebt die Auswahl auf
 document.addEventListener("click", function () {
   if (selectedIcon) {
     deselectIcon(selectedIcon);
   }
 });
+
+makeResizable(document.getElementById("window_metar"));
+makeResizable(document.getElementById("window_radar"));
+
+function makeResizable(element) {
+  const resizer = element.querySelector(".resizer");
+  if (!resizer) return;
+
+  resizer.addEventListener("mousedown", function (e) {
+    e.preventDefault();
+    element.classList.add("resize-active");
+
+    globalThis.addEventListener("mousemove", startResizing);
+    globalThis.addEventListener("mouseup", stopResizing);
+  });
+
+  function startResizing(e) {
+    const rect = element.getBoundingClientRect();
+
+    const newWidth = e.clientX - rect.left;
+    const newHeight = e.clientY - rect.top;
+
+    element.style.width = newWidth + "px";
+    element.style.height = newHeight + "px";
+  }
+
+  function stopResizing() {
+    globalThis.removeEventListener("mousemove", startResizing);
+    globalThis.removeEventListener("mouseup", stopResizing);
+    
+    element.classList.remove("resize-active");
+  }
+}
